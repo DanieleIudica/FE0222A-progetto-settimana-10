@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInput"
+      placeholder="Inserisci Task"
+      [(ngModel)]="inputTodo"
+    />
+  </div>
+  <div class="d-grid gap-2">
+    <button (click)="add(inputTodo)" class="btn btn-success">Add</button>
+    <p class="mt-4" *ngIf="lista.length === 0">{{ messaggio }}</p>
+  </div>
+  <ul class="list-group mt-4">
+    <li
+      class="list-group-item todo {{ todo.completed ? 'done' : '' }}"
+      (click)="toggleDone(i)"
+      id="{{ i }}"
+      *ngFor="let todo of lista; let i = index"
+    >
+      {{ todo.id }} {{ todo.title }}
+
+      <button type="button" class="btn btn-outline-success float-end">
+        Completa
+      </button>
+    </li>
+  </ul>
+</div>
+<!-- <button
+        type="button"
+        class="btn btn-outline-danger float-end mx-3"
+        (click)="deleteTodo(i)"
+      >
+        Elimina
+      </button> -->

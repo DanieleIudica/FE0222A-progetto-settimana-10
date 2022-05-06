@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h1>Tasks Completati:</h1>
+  <p class="mt-4" *ngIf="lista.length === 0">{{ messaggio }}</p>
+  <ul
+    class="list-group mt-4"
+    id="{{ i }}"
+    *ngFor="let todo of lista; let i = index"
+  >
+    <li class="list-group-item" *ngIf="todo.completed === true">
+      {{ todo.id }} {{ todo.title }}
+      <button type="button" disabled class="btn btn-outline-success float-end">
+        Completato
+      </button>
+    </li>
+  </ul>
+</div>
+
+<!-- <button
+        type="button"
+        class="btn btn-outline-danger float-end mx-3"
+        (click)="deleteTodo(i)"
+      >
+        Elimina
+      </button> -->
